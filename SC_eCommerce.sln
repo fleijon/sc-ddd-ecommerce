@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B829FADB-119
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sales", "Sales", "{9653E75A-50F3-4E78-AF61-3F3BEB1B02C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales.Contracts", "src\Sales\Sales.Contracts\Sales.Contracts.csproj", "{D8410CC6-D3E4-4CD8-A29F-2594DC5D65C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sales.Contracts", "src\Sales\Sales.Contracts\Sales.Contracts.csproj", "{D8410CC6-D3E4-4CD8-A29F-2594DC5D65C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales", "src\Sales\Sales\Sales.csproj", "{D7C54CB0-6B74-4706-BCAB-B814C1204667}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sales", "src\Sales\Sales\Sales.csproj", "{D7C54CB0-6B74-4706-BCAB-B814C1204667}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shipping", "Shipping", "{48BE5096-9869-438D-A15C-A61A57C198A4}"
 EndProject
@@ -19,17 +19,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Billing", "Billing", "{FA37
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Warehouse", "Warehouse", "{5F97AA3B-98F1-46FC-8877-F4844512F39E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing.Contracts", "src\Billing\Billing.Contracts\Billing.Contracts.csproj", "{8073BCBB-2995-481C-A3D7-C2D5C20241CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billing.Contracts", "src\Billing\Billing.Contracts\Billing.Contracts.csproj", "{8073BCBB-2995-481C-A3D7-C2D5C20241CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shipping.Contracts", "src\Shipping\Shipping.Contracts\Shipping.Contracts.csproj", "{176242DB-9953-4FD4-B447-F4989C348FAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shipping.Contracts", "src\Shipping\Shipping.Contracts\Shipping.Contracts.csproj", "{176242DB-9953-4FD4-B447-F4989C348FAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Contracts", "src\Warehouse\Warehouse.Contracts\Warehouse.Contracts.csproj", "{36F3DFBE-413B-4798-90E7-5B50F9805410}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.Contracts", "src\Warehouse\Warehouse.Contracts\Warehouse.Contracts.csproj", "{36F3DFBE-413B-4798-90E7-5B50F9805410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing", "src\Billing\Billing\Billing.csproj", "{E9DFCC19-3552-4C69-88CB-9851929E742C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billing", "src\Billing\Billing\Billing.csproj", "{E9DFCC19-3552-4C69-88CB-9851929E742C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shipping", "src\Shipping\Shipping\Shipping.csproj", "{AC13996C-1EC0-422F-8E7B-47E93240804C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shipping", "src\Shipping\Shipping\Shipping.csproj", "{AC13996C-1EC0-422F-8E7B-47E93240804C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse", "src\Warehouse\Warehouse\Warehouse.csproj", "{080303A1-FBED-4BE4-B2F1-D6D388BB4A25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse", "src\Warehouse\Warehouse\Warehouse.csproj", "{080303A1-FBED-4BE4-B2F1-D6D388BB4A25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{BC0AA718-778E-4CE3-9F2A-1141064FADB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,6 +92,7 @@ Global
 		{E9DFCC19-3552-4C69-88CB-9851929E742C} = {FA375CF6-E56A-4526-93D0-EFF50DDB4F86}
 		{AC13996C-1EC0-422F-8E7B-47E93240804C} = {48BE5096-9869-438D-A15C-A61A57C198A4}
 		{080303A1-FBED-4BE4-B2F1-D6D388BB4A25} = {5F97AA3B-98F1-46FC-8877-F4844512F39E}
+		{BC0AA718-778E-4CE3-9F2A-1141064FADB3} = {B829FADB-119F-4E15-AB43-BC39FB06972F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {464F7E8C-C0EA-42D6-9404-4DECC0C64DF2}
