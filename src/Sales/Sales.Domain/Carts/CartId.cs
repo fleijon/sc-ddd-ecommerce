@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SharedKernel;
+using System;
 
 namespace Sales.Domain.Carts
 {
-    public class CartId
+    public class CartId : StronglyTypedId<Guid>
     {
+        internal CartId(Guid value) : base(value)
+        {
+        }
     }
 }

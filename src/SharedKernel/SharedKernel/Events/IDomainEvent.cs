@@ -2,7 +2,7 @@
 
 namespace SharedKernel.Events
 {
-    public interface IDomainEvent : INotification
+    public interface IDomainEvent
     {
         DateTime CreatedAt { get; }
     }
