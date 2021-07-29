@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Billing.Payment
 {
-    class PaymentId
+    internal class PaymentId : SharedKernel.StronglyTypedId<Guid>
     {
+        public PaymentId(Guid value) : base(value)
+        {
+        }
     }
 }

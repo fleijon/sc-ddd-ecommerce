@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sales.Domain.Cart
+namespace Sales.Domain.Carts
 {
-    internal class ProductItem
+    public class ProductItem
     {
     }
 }

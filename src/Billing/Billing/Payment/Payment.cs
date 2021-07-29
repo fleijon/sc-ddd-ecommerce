@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Billing.Payment
+﻿namespace Billing.Payment
 {
-    class Payment
+    internal class Payment
     {
+        public PaymentId Id { get; }
     }
 }
