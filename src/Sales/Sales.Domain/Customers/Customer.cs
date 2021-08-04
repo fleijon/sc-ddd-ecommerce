@@ -29,7 +29,7 @@ namespace Sales.Domain.Customers
             return new Customer(new CustomerId(Guid.NewGuid()), name, email);
         }
 
-        public Order PlaceOrder(List<Carts.CartItem> items, Currency currency, object currencyConverter)
+        public Order PlaceOrder(IEnumerable<Carts.CartItem> items, Currency currency, object currencyConverter)
         {
             if (!items.Any())
             {

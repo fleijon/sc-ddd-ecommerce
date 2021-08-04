@@ -27,12 +27,18 @@ namespace Sales.Domain.Carts
 
         private Dictionary<ProductId, CartItem> _cartItems = new Dictionary<ProductId, CartItem>();
 
-        public void AddItem(ProductId productId, uint quantity)
+        public void AddItem(ProductId productId, Money productPrice, uint quantity)
         {
             if (productId is null)
             {
                 throw new ArgumentNullException(nameof(productId));
             }
+
+            if (productPrice is null)
+            {
+                throw new ArgumentNullException(nameof(productPrice));
+            }
+
             if (_cartItems.ContainsKey(productId))
             {
                 var item = _cartItems[productId];
@@ -40,7 +46,7 @@ namespace Sales.Domain.Carts
             }
             else
             {
-                _cartItems.Add(productId, new CartItem(productId, quantity));
+                _cartItems.Add(productId, new CartItem(productId, quantity, productPrice));
             }
         }
 

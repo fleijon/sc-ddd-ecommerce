@@ -3,27 +3,10 @@ using System.Collections.Generic;
 
 namespace SharedKernel
 {
-    /// <summary>
-    /// <see href=https://github.com/falberthen/EcommerceDDD/blob/master/src/EcommerceDDD.Domain/SharedKernel/Currency.cs>Source</see>
-    /// </summary>
-    public class Currency : ValueObject<Currency>
+    public partial class Currency : ValueObject<Currency>
     {
-        public string Code { get; }
-        public string Symbol { get; }
         public static Currency USDollar => new Currency("USD", "$");
         public static Currency Euro => new Currency("EUR", "€");
-
-        public Currency(string code, string symbol)
-        {
-            if (string.IsNullOrWhiteSpace(code))
-                throw new BusinessRuleException("Code cannot be null or whitespace.");
-
-            if (string.IsNullOrWhiteSpace(symbol))
-                throw new BusinessRuleException("Symbol cannot be null or whitespace.");
-
-            Code = code;
-            Symbol = symbol;
-        }
 
         public static Currency FromCode(string code)
         {
@@ -42,6 +25,27 @@ namespace SharedKernel
         {
             return new List<string>() { USDollar.Code, Euro.Code };
         }
+    }
+
+    /// <summary>
+    /// <see href=https://github.com/falberthen/EcommerceDDD/blob/master/src/EcommerceDDD.Domain/SharedKernel/Currency.cs>Source</see>
+    /// </summary>
+    public partial class Currency : ValueObject<Currency>
+    {
+        public string Code { get; }
+        public string Symbol { get; }
+
+        public Currency(string code, string symbol)
+        {
+            if (string.IsNullOrWhiteSpace(code))
+                throw new BusinessRuleException("Code cannot be null or whitespace.");
+
+            if (string.IsNullOrWhiteSpace(symbol))
+                throw new BusinessRuleException("Symbol cannot be null or whitespace.");
+
+            Code = code;
+            Symbol = symbol;
+        }
 
         protected override bool EqualsCore(Currency other)
         {
@@ -56,10 +60,6 @@ namespace SharedKernel
                 hashCode = (hashCode * 397) ^ Symbol.GetHashCode();
                 return hashCode;
             }
-        }
-
-        private Currency()
-        {
         }
     }
 }

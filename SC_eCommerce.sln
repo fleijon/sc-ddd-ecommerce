@@ -40,9 +40,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E9887491-E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedKernel", "src\SharedKernel\SharedKernel\SharedKernel.csproj", "{9EF9F5C1-CF9F-4C1C-BF95-00F196641357}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales.Domain", "src\Sales\Sales.Domain\Sales.Domain.csproj", "{57A3A42A-8BA4-40E7-9E11-7D364B011624}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sales.Domain", "src\Sales\Sales.Domain\Sales.Domain.csproj", "{57A3A42A-8BA4-40E7-9E11-7D364B011624}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales.Domain.Tests.Unit", "src\Sales\Sales.Domain.Tests.Unit\Sales.Domain.Tests.Unit.csproj", "{3FFDDF62-E0B3-46F1-AD7D-E30440AD8E66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sales.Domain.Tests.Unit", "src\Sales\Sales.Domain.Tests.Unit\Sales.Domain.Tests.Unit.csproj", "{3FFDDF62-E0B3-46F1-AD7D-E30440AD8E66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
