@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using SharedKernel;
 
-namespace Sales.Domain.Catalog.Product
+namespace Sales.Domain.Product
 {
     public class ProductId : StronglyTypedId<Guid>
     {

@@ -2,3 +2,4 @@ https://github.com/falberthen/EcommerceDDD
 https://github.com/ttulka/ddd-example-ecommerce-microservices
 https://github.com/yuen26/E-commerce-DDD
 https://github.com/dcomartin/LooselyCoupledMonolith/tree/CAP
+https://codeopinion.com/cap-event-bus-outbox-pattern/

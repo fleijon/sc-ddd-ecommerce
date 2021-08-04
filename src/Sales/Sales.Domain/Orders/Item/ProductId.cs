@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SharedKernel;
+using System;
 
 namespace Sales.Domain.Order.Item
 {
-    internal class ProductId
+    internal class ProductId : StronglyTypedId<Guid>
     {
+        public ProductId(Guid value) : base(value)
+        {
+        }
     }
 }

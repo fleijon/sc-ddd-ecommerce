@@ -59,6 +59,23 @@ namespace Sales.Domain.Tests.Unit.Carts
         }
 
         [Fact]
+        public void When_Quantity_Of_Item_Is_Below_Zero_It_Should_Be_Removed()
+        {
+            // arrange
+            var customer = Customer.Create("customer1");
+            var product = Product.Create("prod1");
+            var cart = Cart.Create(customer.Id);
+
+            // act
+            cart.AddItem(product.Id, 1);
+            cart.RemoveItem(product.Id, 2);
+
+            // assert
+            var item = cart.CartItems.FirstOrDefault((ci) => ci.ProductId == product.Id);
+            item.Should().BeNull();
+        }
+
+        [Fact]
         public void Should_Be_Possible_To_Decrease_Quantity_Of_Item()
         {
             // arrange
