@@ -1,4 +1,4 @@
-﻿namespace Sales.Domain.Product
+﻿namespace Sales.Domain.Products
 {
     public class Description
     {

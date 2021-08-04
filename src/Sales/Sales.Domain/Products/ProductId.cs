@@ -1,7 +1,7 @@
 ﻿using System;
 using SharedKernel;
 
-namespace Sales.Domain.Product
+namespace Sales.Domain.Products
 {
     public class ProductId : StronglyTypedId<Guid>
     {

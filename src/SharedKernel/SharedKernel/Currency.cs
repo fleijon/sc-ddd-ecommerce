@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SharedKernel
 {
@@ -12,7 +11,6 @@ namespace SharedKernel
         public string Code { get; }
         public string Symbol { get; }
         public static Currency USDollar => new Currency("USD", "$");
-        public static Currency CanadianDollar => new Currency("CAD", "CDN$");
         public static Currency Euro => new Currency("EUR", "€");
 
         public Currency(string code, string symbol)
@@ -35,7 +33,6 @@ namespace SharedKernel
             return code switch
             {
                 "USD" => new Currency(USDollar.Code, USDollar.Symbol),
-                "CAD" => new Currency(CanadianDollar.Code, CanadianDollar.Symbol),
                 "EUR" => new Currency(Euro.Code, Euro.Symbol),
                 _ => throw new BusinessRuleException($"Invalid code {code}")
             };
@@ -43,7 +40,7 @@ namespace SharedKernel
 
         public static List<string> SupportedCurrencies()
         {
-            return new List<string>() { USDollar.Code, Euro.Code, CanadianDollar.Code };
+            return new List<string>() { USDollar.Code, Euro.Code };
         }
 
         protected override bool EqualsCore(Currency other)

@@ -1,13 +1,15 @@
-﻿using Sales.Domain.Catalog.Product;
+﻿using Sales.Domain.Products;
+using SharedKernel;
 
 namespace Sales.Domain.Carts
 {
     public class CartItem
     {
-        internal CartItem(ProductId productId, uint quantity)
+        internal CartItem(ProductId productId, uint quantity, Money productPrice)
         {
             ProductId = productId;
             Quantity = quantity;
+            ProductPrice = productPrice;
         }
 
         public void ChangeQuantityTo(uint newQuantity)
@@ -17,5 +19,6 @@ namespace Sales.Domain.Carts
 
         public ProductId ProductId { get; }
         public uint Quantity { get; private set; }
+        public Money ProductPrice { get; }
     }
 }

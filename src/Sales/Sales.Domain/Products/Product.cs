@@ -1,8 +1,9 @@
-﻿using System;
+﻿using SharedKernel;
+using System;
 
-namespace Sales.Domain.Product
+namespace Sales.Domain.Products
 {
-    public class Product
+    public class Product : AggregateRoot<ProductId>
     {
         private Product(string name, ProductId id)
         {
@@ -21,7 +22,6 @@ namespace Sales.Domain.Product
             Description = new Description(description);
         }
 
-        public ProductId Id { get; }
         public string Name { get; }
 
         public Description Description { get; private set; }

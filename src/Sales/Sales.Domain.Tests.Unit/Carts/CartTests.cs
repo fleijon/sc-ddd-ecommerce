@@ -2,8 +2,9 @@
 using Sales.Domain.Carts;
 using System.Linq;
 using FluentAssertions;
-using Sales.Domain.Catalog.Product;
+using Sales.Domain.Products;
 using Sales.Domain.Customers;
+using System;
 
 namespace Sales.Domain.Tests.Unit.Carts
 {
@@ -13,7 +14,8 @@ namespace Sales.Domain.Tests.Unit.Carts
         public void Should_Be_Possible_To_Add_Item_To_Cart()
         {
             // arrange
-            var customer = Customer.Create("customer1");
+            Func<string, bool> validator = (str) => true;
+            var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var cart = Cart.Create(customer.Id);
 
@@ -28,7 +30,8 @@ namespace Sales.Domain.Tests.Unit.Carts
         public void Should_Be_Possible_To_Remove_Item_From_Cart()
         {
             // arrange
-            var customer = Customer.Create("customer1");
+            Func<string, bool> validator = (str) => true;
+            var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var cart = Cart.Create(customer.Id);
 
@@ -45,7 +48,8 @@ namespace Sales.Domain.Tests.Unit.Carts
         public void Should_Be_Possible_To_Increase_Quantity_Of_Item()
         {
             // arrange
-            var customer = Customer.Create("customer1");
+            Func<string, bool> validator = (str) => true;
+            var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var cart = Cart.Create(customer.Id);
 
@@ -62,7 +66,8 @@ namespace Sales.Domain.Tests.Unit.Carts
         public void When_Quantity_Of_Item_Is_Below_Zero_It_Should_Be_Removed()
         {
             // arrange
-            var customer = Customer.Create("customer1");
+            Func<string, bool> validator = (str) => true;
+            var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var cart = Cart.Create(customer.Id);
 
@@ -79,7 +84,8 @@ namespace Sales.Domain.Tests.Unit.Carts
         public void Should_Be_Possible_To_Decrease_Quantity_Of_Item()
         {
             // arrange
-            var customer = Customer.Create("customer1");
+            Func<string, bool> validator = (str) => true;
+            var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var cart = Cart.Create(customer.Id);
 
@@ -97,7 +103,8 @@ namespace Sales.Domain.Tests.Unit.Carts
         {
             // arrange
 
-            var customer = Customer.Create("customer1");
+            Func<string, bool> validator = (str) => true;
+            var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var cart = Cart.Create(customer.Id);
             cart.AddItem(product.Id, 1);

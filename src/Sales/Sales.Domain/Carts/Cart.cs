@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Sales.Domain.Catalog.Product;
+using Sales.Domain.Products;
 using Sales.Domain.Customers;
+using SharedKernel;
 
 namespace Sales.Domain.Carts
 {
-    public class Cart
+    public class Cart : AggregateRoot<CartId>
     {
         private Cart(CartId id, CustomerId customerId)
         {
@@ -18,7 +19,7 @@ namespace Sales.Domain.Carts
         {
             if (customerId is null)
             {
-                throw new ArgumentNullException(nameof(customerId));
+                throw new BusinessRuleException("A cart must be assigned a customer.");
             }
 
             return new Cart(new CartId(Guid.NewGuid()), customerId);
@@ -70,7 +71,6 @@ namespace Sales.Domain.Carts
             _cartItems.Clear();
         }
 
-        public CartId Id { get; }
         public CustomerId CustomerId { get; private set; }
 
         public IReadOnlyCollection<CartItem> CartItems => _cartItems.Select((kv) => kv.Value).ToList().AsReadOnly();
