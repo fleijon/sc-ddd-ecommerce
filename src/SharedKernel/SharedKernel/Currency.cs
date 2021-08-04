@@ -35,7 +35,7 @@ namespace SharedKernel
         public string Code { get; }
         public string Symbol { get; }
 
-        public Currency(string code, string symbol)
+        internal Currency(string code, string symbol)
         {
             if (string.IsNullOrWhiteSpace(code))
                 throw new BusinessRuleException("Code cannot be null or whitespace.");

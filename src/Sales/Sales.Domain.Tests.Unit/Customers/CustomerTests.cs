@@ -40,7 +40,7 @@ namespace Sales.Domain.Tests.Unit.Customers
             // arrange
             var product = Products.Product.Create("prod1");
             var price = Money.Of(new decimal(1.0), "Usd");
-            var currency = new Currency("Usd", "$");
+            var currency = Currency.USDollar;
 
             Func<string, bool> validator = (s) => true;
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
@@ -54,9 +54,9 @@ namespace Sales.Domain.Tests.Unit.Customers
             order.OrderLines.Length.Should().Be(1);
         }
 
-        private static ConvertCurrency(Money price, Currency currency)
+        private static Money ConvertCurrency(Money price, Currency currency)
         {
-            return price
+            throw new NotImplementedException();
         }
     }
 }

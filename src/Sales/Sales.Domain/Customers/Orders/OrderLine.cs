@@ -25,13 +25,13 @@ namespace Sales.Domain.Customers.Orders
             Money productBasePrice,
             uint quantity,
             Currency currency,
-            object currencyConverter)
+            Func<Currency, Money, Money> currencyConverter)
         {
             var productPrice = CalculateProductPrice(productBasePrice, currency, currencyConverter);
             return new OrderLine(productId, quantity, productPrice);
         }
 
-        private static Money CalculateProductPrice(Money basePrice, Currency currency, object currencyConverter)
+        private static Money CalculateProductPrice(Money basePrice, Currency currency, Func<Currency, Money, Money> currencyConverter)
         {
             throw new NotImplementedException();
         }

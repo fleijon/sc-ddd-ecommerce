@@ -24,7 +24,7 @@ namespace Sales.Domain.Customers.Orders
         public DateTime Placed { get; }
         public OrderStatus Status { get; private set; }
 
-        public static Order Create(CustomerId customerId, IEnumerable<CartItem> items, Currency currency, object currencyConverter)
+        public static Order Create(CustomerId customerId, IEnumerable<CartItem> items, Currency currency, Func<Currency, Money, Money> currencyConverter)
         {
             var orderLines = items.Select((i) => OrderLine.Create(i.ProductId, i.ProductPrice, i.Quantity, currency, currencyConverter)).ToArray();
             return new Order(new OrderId(Guid.NewGuid()), customerId, orderLines, currency);
