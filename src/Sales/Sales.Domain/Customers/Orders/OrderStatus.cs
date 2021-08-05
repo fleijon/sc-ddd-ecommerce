@@ -2,6 +2,9 @@
 {
     public enum OrderStatus
     {
-        Placed
+        Canceled = 0,
+        Placed = 1,
+        WaitingForPayment = 2,
+        ReadyToShip = 3
     }
 }

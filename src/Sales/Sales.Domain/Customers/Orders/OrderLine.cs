@@ -33,7 +33,7 @@ namespace Sales.Domain.Customers.Orders
 
         private static Money CalculateProductPrice(Money basePrice, Currency currency, Func<Currency, Money, Money> currencyConverter)
         {
-            throw new NotImplementedException();
+            return currencyConverter(currency, basePrice);
         }
     }
 }

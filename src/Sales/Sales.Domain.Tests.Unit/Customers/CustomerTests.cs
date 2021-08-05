@@ -39,7 +39,7 @@ namespace Sales.Domain.Tests.Unit.Customers
         {
             // arrange
             var product = Products.Product.Create("prod1");
-            var price = Money.Of(new decimal(1.0), "Usd");
+            var price = Money.Of(new decimal(1.0), "USD");
             var currency = Currency.USDollar;
 
             Func<string, bool> validator = (s) => true;
@@ -48,15 +48,15 @@ namespace Sales.Domain.Tests.Unit.Customers
             cart.AddItem(product.Id, price, 1);
 
             // act
-            var order = customer.PlaceOrder(cart.CartItems.Select((ci) => ci), currency, null);
+            var order = customer.PlaceOrder(cart.CartItems.Select((ci) => ci), currency, ConvertCurrencyWithOneToOneRatio);
 
             // assert
             order.OrderLines.Length.Should().Be(1);
         }
 
-        private static Money ConvertCurrency(Money price, Currency currency)
+        private static Money ConvertCurrencyWithOneToOneRatio(Currency currency, Money price)
         {
-            throw new NotImplementedException();
+            return price;
         }
     }
 }

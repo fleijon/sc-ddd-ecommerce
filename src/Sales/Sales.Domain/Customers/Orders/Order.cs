@@ -13,6 +13,7 @@ namespace Sales.Domain.Customers.Orders
             Id = id;
             CustomerId = customerId;
             Currency = curreny;
+            OrderLines = orderLines;
             Placed = DateTime.Now;
             Status = OrderStatus.Placed;
         }

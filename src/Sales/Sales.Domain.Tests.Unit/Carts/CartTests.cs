@@ -5,6 +5,7 @@ using FluentAssertions;
 using Sales.Domain.Products;
 using Sales.Domain.Customers;
 using System;
+using SharedKernel;
 
 namespace Sales.Domain.Tests.Unit.Carts
 {
@@ -17,10 +18,11 @@ namespace Sales.Domain.Tests.Unit.Carts
             Func<string, bool> validator = (str) => true;
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
+            var prodPrice = Money.Of(new decimal(1.0), "USD");
             var cart = Cart.Create(customer.Id);
 
             // act
-            cart.AddItem(product.Id, 1);
+            cart.AddItem(product.Id, prodPrice, 1);
 
             // assert
             cart.CartItems.Count().Should().Be(1);
@@ -34,8 +36,9 @@ namespace Sales.Domain.Tests.Unit.Carts
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var cart = Cart.Create(customer.Id);
+            var prodPrice = Money.Of(new decimal(1.0), "USD");
 
-            cart.AddItem(product.Id, 1);
+            cart.AddItem(product.Id, prodPrice, 1);
 
             // act
             cart.RemoveItem(product.Id, 1);
@@ -51,11 +54,12 @@ namespace Sales.Domain.Tests.Unit.Carts
             Func<string, bool> validator = (str) => true;
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
+            var prodPrice = Money.Of(new decimal(1.0), "USD");
             var cart = Cart.Create(customer.Id);
 
             // act
-            cart.AddItem(product.Id, 1);
-            cart.AddItem(product.Id, 1);
+            cart.AddItem(product.Id, prodPrice, 1);
+            cart.AddItem(product.Id, prodPrice, 1);
 
             // assert
             var item = cart.CartItems.Single((ci) => ci.ProductId == product.Id);
@@ -69,10 +73,11 @@ namespace Sales.Domain.Tests.Unit.Carts
             Func<string, bool> validator = (str) => true;
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
+            var prodPrice = Money.Of(new decimal(1.0), "USD");
             var cart = Cart.Create(customer.Id);
 
             // act
-            cart.AddItem(product.Id, 1);
+            cart.AddItem(product.Id, prodPrice, 1);
             cart.RemoveItem(product.Id, 2);
 
             // assert
@@ -88,9 +93,10 @@ namespace Sales.Domain.Tests.Unit.Carts
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var cart = Cart.Create(customer.Id);
+            var prodPrice = Money.Of(new decimal(1.0), "USD");
 
             // act
-            cart.AddItem(product.Id, 3);
+            cart.AddItem(product.Id, prodPrice, 3);
             cart.RemoveItem(product.Id, 2);
 
             // assert
@@ -106,8 +112,9 @@ namespace Sales.Domain.Tests.Unit.Carts
             Func<string, bool> validator = (str) => true;
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
+            var prodPrice = Money.Of(new decimal(1.0), "USD");
             var cart = Cart.Create(customer.Id);
-            cart.AddItem(product.Id, 1);
+            cart.AddItem(product.Id, prodPrice, 1);
 
             // act
             cart.ClearAllCartItems();
