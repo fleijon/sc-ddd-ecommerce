@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using System;
 
 namespace Sales.Application.Carts.AddToCart
 {
-    class AddToCartCommand
+    public class AddToCartCommand : IRequest<Guid>
     {
+        public Guid CustomerId { get; set; }
+        public Guid ProductId { get; set; }
+        public uint Quantity { get; set; }
+        public string Currency { get; set; }
     }
 }
