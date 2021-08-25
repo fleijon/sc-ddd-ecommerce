@@ -5,7 +5,11 @@ namespace Sales.Domain.Carts
 {
     public class CartItem
     {
-        internal CartItem(ProductId productId, uint quantity, Money productPrice)
+        private CartItem()
+        {
+        }
+
+        public CartItem(ProductId productId, uint quantity, Money productPrice)
         {
             ProductId = productId;
             Quantity = quantity;

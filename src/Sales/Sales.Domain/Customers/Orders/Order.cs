@@ -8,6 +8,10 @@ namespace Sales.Domain.Customers.Orders
 {
     public class Order
     {
+        private Order()
+        {
+        }
+
         private Order(OrderId id, CustomerId customerId, OrderLine[] orderLines, Currency curreny)
         {
             Id = id;

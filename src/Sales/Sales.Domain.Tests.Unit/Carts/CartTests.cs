@@ -19,7 +19,7 @@ namespace Sales.Domain.Tests.Unit.Carts
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var prodPrice = Money.Of(new decimal(1.0), "USD");
-            var cart = Cart.Create(customer.Id);
+            var cart = Cart.CreateNew(customer.Id);
 
             // act
             cart.AddItem(product.Id, prodPrice, 1);
@@ -35,7 +35,7 @@ namespace Sales.Domain.Tests.Unit.Carts
             Func<string, bool> validator = (str) => true;
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
-            var cart = Cart.Create(customer.Id);
+            var cart = Cart.CreateNew(customer.Id);
             var prodPrice = Money.Of(new decimal(1.0), "USD");
 
             cart.AddItem(product.Id, prodPrice, 1);
@@ -55,7 +55,7 @@ namespace Sales.Domain.Tests.Unit.Carts
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var prodPrice = Money.Of(new decimal(1.0), "USD");
-            var cart = Cart.Create(customer.Id);
+            var cart = Cart.CreateNew(customer.Id);
 
             // act
             cart.AddItem(product.Id, prodPrice, 1);
@@ -74,7 +74,7 @@ namespace Sales.Domain.Tests.Unit.Carts
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var prodPrice = Money.Of(new decimal(1.0), "USD");
-            var cart = Cart.Create(customer.Id);
+            var cart = Cart.CreateNew(customer.Id);
 
             // act
             cart.AddItem(product.Id, prodPrice, 1);
@@ -92,7 +92,7 @@ namespace Sales.Domain.Tests.Unit.Carts
             Func<string, bool> validator = (str) => true;
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
-            var cart = Cart.Create(customer.Id);
+            var cart = Cart.CreateNew(customer.Id);
             var prodPrice = Money.Of(new decimal(1.0), "USD");
 
             // act
@@ -113,7 +113,7 @@ namespace Sales.Domain.Tests.Unit.Carts
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
             var product = Product.Create("prod1");
             var prodPrice = Money.Of(new decimal(1.0), "USD");
-            var cart = Cart.Create(customer.Id);
+            var cart = Cart.CreateNew(customer.Id);
             cart.AddItem(product.Id, prodPrice, 1);
 
             // act

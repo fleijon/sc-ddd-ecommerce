@@ -44,7 +44,7 @@ namespace Sales.Domain.Tests.Unit.Customers
 
             Func<string, bool> validator = (s) => true;
             var customer = Customer.Create("customer1", "customer1@email.com", validator);
-            var cart = Domain.Carts.Cart.Create(customer.Id);
+            var cart = Domain.Carts.Cart.CreateNew(customer.Id);
             cart.AddItem(product.Id, price, 1);
 
             // act

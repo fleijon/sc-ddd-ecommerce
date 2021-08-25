@@ -6,6 +6,10 @@ namespace Sales.Domain.Customers.Orders
 {
     public class OrderLine
     {
+        private OrderLine()
+        {
+        }
+
         private OrderLine(
             ProductId productId,
             uint quantity,

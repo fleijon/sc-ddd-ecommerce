@@ -1,18 +1,34 @@
-﻿using System;
+﻿using Sales.Domain.Customers.Orders;
+using SharedKernel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Sales.Domain.Customers.Orders;
-using SharedKernel;
 
 namespace Sales.Domain.Customers
 {
     public class Customer : AggregateRoot<CustomerId>
     {
-        private Customer(CustomerId id, string name, string email)
+        private Customer()
+        {
+        }
+
+        public Name Name { get; }
+        public Email Email { get; }
+
+        private Customer(CustomerId id, Name name, Email email)
         {
             Id = id;
             Name = name;
             Email = email;
+        }
+
+        public static Customer Of(
+            CustomerId customerId,
+            Name name,
+            Email email
+            )
+        {
+            return new Customer(customerId, name, email);
         }
 
         public static Customer Create(string name, string email, Func<string, bool> emailValidator)
@@ -26,7 +42,7 @@ namespace Sales.Domain.Customers
                 throw new BusinessRuleException("Email is invalid.");
             }
 
-            return new Customer(new CustomerId(Guid.NewGuid()), name, email);
+            return new Customer(CustomerId.Of(Guid.NewGuid()), Name.CreateNew(name, ""), Email.CreateNew(email));
         }
 
         public Order PlaceOrder(IEnumerable<Carts.CartItem> items, Currency currency, Func<Currency, Money, Money> currencyConverter)
@@ -46,8 +62,5 @@ namespace Sales.Domain.Customers
                 currency,
                 currencyConverter);
         }
-
-        public string Name { get; }
-        public string Email { get; }
     }
 }
