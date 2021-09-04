@@ -1,4 +1,5 @@
-﻿using Sales.Domain.Customers.Orders;
+﻿using Sales.Contracts.Events;
+using Sales.Domain.Customers.Orders;
 using SharedKernel;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace Sales.Domain.Customers
             Email = email;
         }
 
-        public static Customer Of(
+        private static Customer Of(
             CustomerId customerId,
             Name name,
             Email email
@@ -45,7 +46,7 @@ namespace Sales.Domain.Customers
             return new Customer(CustomerId.Of(Guid.NewGuid()), Name.CreateNew(name, ""), Email.CreateNew(email));
         }
 
-        public Order PlaceOrder(IEnumerable<Carts.CartItem> items, Currency currency, Func<Currency, Money, Money> currencyConverter)
+        public Order PlaceOrder(IEnumerable<Carts.CartItem> items, Currency currency, ICurrencyConverter currencyConverter)
         {
             if (!items.Any())
             {
@@ -56,11 +57,15 @@ namespace Sales.Domain.Customers
                 throw new BusinessRuleException("No currency given.");
             }
 
-            return Order.Create(
-                new CustomerId(Id.Value),
+            var order = Order.Create(
+                Id,
                 items,
                 currency,
                 currencyConverter);
+
+            AddDomainEvent(new OrderPlacedEvent(Id.Value, order.Id.Value));
+
+            return order;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Sales.Domain.Products;
 using SharedKernel;
-using System;
 
 namespace Sales.Domain.Customers.Orders
 {
@@ -29,15 +28,10 @@ namespace Sales.Domain.Customers.Orders
             Money productBasePrice,
             uint quantity,
             Currency currency,
-            Func<Currency, Money, Money> currencyConverter)
+            ICurrencyConverter currencyConverter)
         {
-            var productPrice = CalculateProductPrice(productBasePrice, currency, currencyConverter);
+            var productPrice = currencyConverter.Convert(currency, productBasePrice);
             return new OrderLine(productId, quantity, productPrice);
-        }
-
-        private static Money CalculateProductPrice(Money basePrice, Currency currency, Func<Currency, Money, Money> currencyConverter)
-        {
-            return currencyConverter(currency, basePrice);
         }
     }
 }

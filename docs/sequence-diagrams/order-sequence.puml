@@ -1,0 +1,6 @@
+@startuml
+Customer -> Order : <PlaceOrder>\nCreate new order
+Order -> OrderLine : <Create>\nCreate order lines
+
+
+@enduml

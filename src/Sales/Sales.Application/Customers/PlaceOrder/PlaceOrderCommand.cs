@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Paramore.Brighter;
+using System;
 
 namespace Sales.Application.Customers.PlaceOrder
 {
-    class PlaceOrderCommand
+    public class PlaceOrderCommand : ICommand
     {
+        public Guid Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Guid CartId { get; private set; }
+        public Guid CustomerId { get; private set; }
+        public string Currency { get; private set; }
+
+        public PlaceOrderCommand(Guid cartId, Guid customerId, string currency)
+        {
+            CartId = cartId;
+            CustomerId = customerId;
+            Currency = currency;
+        }
     }
 }
