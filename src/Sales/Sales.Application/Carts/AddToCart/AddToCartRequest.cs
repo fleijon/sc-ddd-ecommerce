@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Sales.Application.Carts.AddToCart
+namespace Sales.Application.Carts
 {
     public class AddToCartRequest
     {

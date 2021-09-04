@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using FluentAssertions;
 using Sales.Domain.Customers;
-using FluentAssertions;
 using SharedKernel;
+using System;
+using System.Linq;
+using Xunit;
 
 namespace Sales.Domain.Tests.Unit.Customers
 {
@@ -38,8 +35,8 @@ namespace Sales.Domain.Tests.Unit.Customers
         public void Should_Be_Possible_To_Place_Order()
         {
             // arrange
-            var product = Products.Product.Create("prod1");
             var price = Money.Of(new decimal(1.0), "USD");
+            var product = Products.Product.Create("prod1", price);
             var currency = Currency.USDollar;
 
             Func<string, bool> validator = (s) => true;

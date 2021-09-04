@@ -1,13 +1,14 @@
-﻿using MediatR;
+﻿using Paramore.Brighter;
 using System;
 
-namespace Sales.Application.Carts.AddToCart
+namespace Sales.Application.Carts
 {
-    public class AddToCartCommand : IRequest<Guid>
+    public class AddToCartCommand : ICommand
     {
-        public Guid CustomerId { get; set; }
+        public Guid CartId { get; set; }
         public Guid ProductId { get; set; }
         public uint Quantity { get; set; }
         public string Currency { get; set; }
+        public Guid Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

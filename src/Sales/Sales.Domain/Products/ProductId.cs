@@ -1,11 +1,11 @@
-﻿using System;
-using SharedKernel;
+﻿using SharedKernel;
+using System;
 
 namespace Sales.Domain.Products
 {
     public class ProductId : StronglyTypedId<Guid>
     {
-        internal ProductId(Guid value) : base(value)
+        public ProductId(Guid value) : base(value)
         {
         }
     }

@@ -6,7 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="10.3.0" />
-    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="Paramore.Brighter" Version="8.1.1399" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sales.Domain\Sales.Domain.csproj" />
   </ItemGroup>
 
 </Project>
